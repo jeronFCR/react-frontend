@@ -32,6 +32,10 @@ We are currently implementing [i18next](https://www.i18next.com/) for internatio
 
 We are planning to replace the current reliance on the `sonner` library with a custom-built toast notification system. By doing so, we will have better control over the toast notifications, customizing them according to our needs and ensuring they integrate seamlessly with the overall application. This new system will allow for more flexibility and consistency in handling notifications across the app.
 
+## 7. E2E Github Workflow
+
+We are planning to improve E2E tests and create a new workflow using the schedule option to run automated tests at specific intervals.
+
 ---
 
 ## Technical Discussions
