@@ -1,0 +1,45 @@
+{
+  "not-found": {
+    "error-message": "404 - Page not found",
+    "redirection-message": "Redirecting in {{secondsLeft}} seconds..."
+  },
+  "room": {
+    "list": {
+      "filter-form": {
+        "legend": "Filter options",
+        "name-input": {
+          "placeholder": "Type room name..."
+        },
+        "available-checkbox": {
+          "label": "Only available rooms"
+        }
+      },
+      "page-number": "Page {{page}}",
+      "no-rooms": "No rooms found",
+      "card": {
+        "busy-status": "Busy",
+        "available-status": "Available"
+      }
+    },
+    "detail": {
+      "devices-section": {
+        "title": "Devices:"
+      },
+      "book-section": {
+        "title": "Booked by:",
+        "no-booking": "No booking"
+      },
+      "actions": {
+        "release-button": "Release",
+        "book-button": "Book"
+      },
+      "no-data": "No room data"
+    }
+  },
+  "device": {
+    "detail": {
+      "type-label": "Type",
+      "battery-label": "Battery"
+    }
+  }
+}
