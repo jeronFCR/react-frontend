@@ -8,7 +8,7 @@ interface RoomListCardProps {
   room: RoomShortDetail;
 }
 
-export const RoomListCard: React.FC<RoomListCardProps> = ({ room }) => {
+const RoomListCard: React.FC<RoomListCardProps> = ({ room }) => {
   const [t] = useTranslation();
 
   return (
@@ -18,7 +18,10 @@ export const RoomListCard: React.FC<RoomListCardProps> = ({ room }) => {
       </div>
       <div>
         <div data-testid="room-list-name">{room.name}</div>
-        <div data-testid="room-list-status" className="text-xs font-semibold opacity-(--custom-opacity)">
+        <div
+          data-testid="room-list-status"
+          className="text-xs font-semibold opacity-(--custom-opacity)"
+        >
           <div className="inline-grid *:[grid-area:1/1]">
             <div
               className={`status ${
@@ -42,3 +45,5 @@ export const RoomListCard: React.FC<RoomListCardProps> = ({ room }) => {
     </>
   );
 };
+
+export default RoomListCard;

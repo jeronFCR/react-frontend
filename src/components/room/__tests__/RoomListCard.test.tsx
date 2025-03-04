@@ -1,7 +1,7 @@
 import { mockRoomList } from "@helpers/tests/mocks/room";
 import { i18nRender } from "@helpers/tests/i18nRender";
 
-import { RoomListCard } from "../RoomListCard";
+import RoomListCard from "../RoomListCard";
 import { screen } from "@testing-library/react";
 
 describe("RoomListCard Component", () => {
@@ -14,7 +14,9 @@ describe("RoomListCard Component", () => {
   it("should display Available status", () => {
     i18nRender(<RoomListCard room={mockRoomList[1]} />);
 
-    expect(screen.getByTestId("room-list-status")).toHaveTextContent("Available");
+    expect(screen.getByTestId("room-list-status")).toHaveTextContent(
+      "Available"
+    );
   });
 
   it("should display Busy status", () => {
