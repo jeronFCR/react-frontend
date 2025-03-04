@@ -8,7 +8,7 @@ import { useRooms } from "@services";
 
 import { Button, SkeletonList } from "@components/ui";
 import { FieldSet, SingleInput, Checkbox } from "@components/ui/form";
-import { RoomListCard } from "@components/room/RoomListCard";
+import RoomListCard from "@components/room/RoomListCard";
 
 export default function Home() {
   const navigate = useNavigate();

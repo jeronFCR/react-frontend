@@ -12,10 +12,10 @@ export const initialFilterState: RoomListFilterModel = {
     onlyAvailable: false,
 };
 
-export function filterReducer(
+export const filterReducer = (
     state: RoomListFilterModel,
     action: RoomListFilterAction
-): RoomListFilterModel {
+): RoomListFilterModel => {
     switch (action.type) {
         case "SET_ROOM_NAME":
             return { ...state, roomName: action.payload };

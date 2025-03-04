@@ -6,11 +6,11 @@ export interface Room {
     name: string;
 }
 
-export type RDetail = Room & {
+export type RoomFullDetail = Room & {
     booking: Booking | undefined;
     devices: Device[];
 }
 
-export type RoomList = Room & {
+export type RoomShortDetail = Room & {
     busy: boolean;
 }

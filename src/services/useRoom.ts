@@ -1,9 +1,9 @@
 import { useQuery, useMutation } from '@tanstack/react-query';
 
-import { RDetail, RoomList } from '@interfaces';
+import { RoomFullDetail, RoomShortDetail } from '@interfaces';
 
 export const useRooms = () => {
-    return useQuery<RoomList[]>({
+    return useQuery<RoomShortDetail[]>({
         queryKey: ['rooms'],
         initialData: [],
         queryFn: async () => {
@@ -16,8 +16,8 @@ export const useRooms = () => {
     });
 };
 
-export const useRoom = (id: RoomList['id'] | undefined) => {
-    return useQuery<RDetail>({
+export const useRoom = (id: RoomShortDetail['id'] | undefined) => {
+    return useQuery<RoomFullDetail>({
         queryKey: ['rooms', id],
         queryFn: async () => {
             const response = await fetch(`${import.meta.env.VITE_API_URL}/rooms/${id}`);
@@ -35,7 +35,7 @@ export const useRoom = (id: RoomList['id'] | undefined) => {
     });
 };
 
-export const useBookRoom = (id: RDetail['id'] | undefined) => {
+export const useBookRoom = (id: RoomFullDetail['id'] | undefined) => {
     return useMutation({
         mutationFn: async () => {
             const response = await fetch(`${import.meta.env.VITE_API_URL}/rooms/${id}/book`, { method: 'POST' });
@@ -50,7 +50,7 @@ export const useBookRoom = (id: RDetail['id'] | undefined) => {
     });
 };
 
-export const useReleaseRoom = (id: RDetail['id'] | undefined) => {
+export const useReleaseRoom = (id: RoomFullDetail['id'] | undefined) => {
     return useMutation({
         mutationFn: async () => {
             const response = await fetch(`${import.meta.env.VITE_API_URL}/rooms/${id}/release`, { method: 'POST' });

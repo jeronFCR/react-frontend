@@ -3,12 +3,12 @@ import { useTranslation } from "react-i18next";
 import { ChevronLeft, DoorOpen, TvMinimal } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 
-import { Device, RDetail } from "@interfaces";
+import { Device, RoomFullDetail } from "@interfaces";
 
 import { Button, Card, Skeleton } from "@components/ui";
 
 interface DetailProps {
-  room: RDetail | undefined;
+  room: RoomFullDetail | undefined;
   loading: boolean;
   selectDevice: (device: Device) => void;
   handleRoomAction: (actionType: "BOOK" | "RELEASE") => void;

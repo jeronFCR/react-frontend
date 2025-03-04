@@ -7,6 +7,9 @@ This document explains the project structure and best practices we follow to mai
 ## Project Structure
 
 ```plaintext
+.github/               # Github files like workflows
+docs/                  # Doc md files
+e2e/                   # E2E files
 src/
   ├── assets/          # Static files like images, fonts, and icons
   ├── components/      # UI components, organized by functionality
