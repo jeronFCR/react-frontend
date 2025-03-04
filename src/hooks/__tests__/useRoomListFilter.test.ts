@@ -5,12 +5,12 @@ import { mockRoomList } from "@helpers/tests/mocks/room";
 import { useRoomListFilter } from "../useRoomListFilter";
 
 describe("useRoomListFilter", () => {
-    test("returns all rooms when no filters are applied", () => {
+    it("returns all rooms when no filters are applied", () => {
         const { result } = renderHook(() => useRoomListFilter(mockRoomList));
         expect(result.current.filteredRooms).toHaveLength(2);
     });
 
-    test("filters rooms by name correctly", () => {
+    it("filters rooms by name correctly", () => {
         const { result } = renderHook(() => useRoomListFilter(mockRoomList));
 
         act(() => {
@@ -21,7 +21,7 @@ describe("useRoomListFilter", () => {
         expect(result.current.filteredRooms[0].name).toBe("Room 2");
     });
 
-    test("filters only available rooms when toggled", () => {
+    it("filters only available rooms when toggled", () => {
         const { result } = renderHook(() => useRoomListFilter(mockRoomList));
 
         act(() => {
@@ -32,7 +32,7 @@ describe("useRoomListFilter", () => {
         expect(result.current.filteredRooms.every(room => !room.busy)).toBe(true);
     });
 
-    test("updates filterState correctly when setRoomName is called", () => {
+    it("updates filterState correctly when setRoomName is called", () => {
         const { result } = renderHook(() => useRoomListFilter(mockRoomList));
 
         act(() => {
@@ -42,7 +42,7 @@ describe("useRoomListFilter", () => {
         expect(result.current.filterState.roomName).toBe("Room 1");
     });
 
-    test("toggles onlyAvailable correctly", () => {
+    it("toggles onlyAvailable correctly", () => {
         const { result } = renderHook(() => useRoomListFilter(mockRoomList));
 
         expect(result.current.filterState.onlyAvailable).toBe(false);

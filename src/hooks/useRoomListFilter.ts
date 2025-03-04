@@ -1,12 +1,12 @@
 import { useReducer, useMemo, useCallback } from "react";
 
-import { RoomList } from "@interfaces";
+import { RoomShortDetail } from "@interfaces";
 import {
   filterReducer,
   initialFilterState,
 } from "@reducers/roomListFilterReducer";
 
-export function useRoomListFilter(rooms: RoomList[]) {
+export const useRoomListFilter = (rooms: RoomShortDetail[]) => {
   const [filterState, dispatch] = useReducer(filterReducer, initialFilterState);
 
   const filteredRooms = useMemo(

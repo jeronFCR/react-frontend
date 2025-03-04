@@ -2,10 +2,10 @@ import React from "react";
 import { ChevronRight, DoorOpen } from "lucide-react";
 import { useTranslation } from "react-i18next";
 
-import { RoomList } from "@interfaces";
+import { RoomShortDetail } from "@interfaces";
 
 interface RoomListCardProps {
-  room: RoomList;
+  room: RoomShortDetail;
 }
 
 export const RoomListCard: React.FC<RoomListCardProps> = ({ room }) => {
@@ -18,8 +18,8 @@ export const RoomListCard: React.FC<RoomListCardProps> = ({ room }) => {
       </div>
       <div>
         <div data-testid="room-list-name">{room.name}</div>
-        <div className="text-xs font-semibold opacity-(--custom-opacity)">
-          <div data-testid="room-list-status" className="inline-grid *:[grid-area:1/1]">
+        <div data-testid="room-list-status" className="text-xs font-semibold opacity-(--custom-opacity)">
+          <div className="inline-grid *:[grid-area:1/1]">
             <div
               className={`status ${
                 room.busy ? "status-error" : "status-success"
