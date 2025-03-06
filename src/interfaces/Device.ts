@@ -1,6 +1,6 @@
 export interface Device {
-    id: string;
-    name: string;
-    type?: string;
-    battery?: number;
+  id: string;
+  name: string;
+  type?: string;
+  battery?: number;
 }

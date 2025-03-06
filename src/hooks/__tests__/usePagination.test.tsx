@@ -1,12 +1,12 @@
-import { renderHook, act } from "@testing-library/react";
+import { act, renderHook } from '@testing-library/react';
 
-import { usePagination } from "../usePagination";
+import { usePagination } from '../usePagination';
 
-describe("usePagination Hook", () => {
+describe('usePagination Hook', () => {
   const data = Array.from({ length: 20 }, (_, i) => i + 1);
   const itemsPerPage = 5;
 
-  it("should initialize with correct values", () => {
+  it('should initialize with correct values', () => {
     const { result } = renderHook(() => usePagination(data, itemsPerPage));
 
     expect(result.current.currentPage).toBe(0);
@@ -14,7 +14,7 @@ describe("usePagination Hook", () => {
     expect(result.current.paginatedData).toEqual([1, 2, 3, 4, 5]);
   });
 
-  it("should go to the next page", () => {
+  it('should go to the next page', () => {
     const { result } = renderHook(() => usePagination(data, itemsPerPage));
 
     act(() => {
@@ -25,7 +25,7 @@ describe("usePagination Hook", () => {
     expect(result.current.paginatedData).toEqual([6, 7, 8, 9, 10]);
   });
 
-  it("should go to the previous page", () => {
+  it('should go to the previous page', () => {
     const { result } = renderHook(() => usePagination(data, itemsPerPage));
 
     act(() => {
@@ -37,7 +37,7 @@ describe("usePagination Hook", () => {
     expect(result.current.paginatedData).toEqual([1, 2, 3, 4, 5]);
   });
 
-  it("should reset to the first page", () => {
+  it('should reset to the first page', () => {
     const { result } = renderHook(() => usePagination(data, itemsPerPage));
 
     act(() => {
@@ -50,7 +50,7 @@ describe("usePagination Hook", () => {
     expect(result.current.paginatedData).toEqual([1, 2, 3, 4, 5]);
   });
 
-  it("should set a specific page", () => {
+  it('should set a specific page', () => {
     const { result } = renderHook(() => usePagination(data, itemsPerPage));
 
     act(() => {
@@ -61,7 +61,7 @@ describe("usePagination Hook", () => {
     expect(result.current.paginatedData).toEqual([11, 12, 13, 14, 15]);
   });
 
-  it("should not go beyond total pages", () => {
+  it('should not go beyond total pages', () => {
     const { result } = renderHook(() => usePagination(data, itemsPerPage));
 
     act(() => {
@@ -72,7 +72,7 @@ describe("usePagination Hook", () => {
     expect(result.current.paginatedData).toEqual([16, 17, 18, 19, 20]);
   });
 
-  it("should not go below page 0", () => {
+  it('should not go below page 0', () => {
     const { result } = renderHook(() => usePagination(data, itemsPerPage));
 
     act(() => {

@@ -1,11 +1,11 @@
-import { render, screen } from "@testing-library/react";
+import { render, screen } from '@testing-library/react';
 
-import { Loading } from "../Loading";
+import { Loading } from '../Loading';
 
-describe("Loading Component", () => {
-  it("should render loading component correctly", () => {
+describe('Loading Component', () => {
+  it('should render loading component correctly', () => {
     render(<Loading />);
 
-    expect(screen.getByRole("presentation")).toBeInTheDocument();
+    expect(screen.getByRole('presentation')).toBeInTheDocument();
   });
 });

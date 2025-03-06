@@ -1,7 +1,8 @@
-import { useEffect, useState } from "react";
-import { TentTree } from "lucide-react";
-import { useNavigate } from "react-router-dom";
-import { useTranslation } from "react-i18next";
+import { useEffect, useState } from 'react';
+import { useTranslation } from 'react-i18next';
+import { useNavigate } from 'react-router-dom';
+
+import { TentTree } from 'lucide-react';
 
 export default function NotFound() {
   const [secondsLeft, setSecondsLeft] = useState(5);
@@ -14,7 +15,7 @@ export default function NotFound() {
     }, 1000);
 
     const timeout = setTimeout(() => {
-      navigate("/");
+      navigate('/');
     }, 5000);
 
     return () => {
@@ -26,8 +27,8 @@ export default function NotFound() {
   return (
     <div className="grid grid-cols-1 place-items-center gap-8 text-center text-gray-500">
       <TentTree size={100} />
-      <p className="text-3xl">{t("not-found.error-message")}</p>
-      <p>{t("not-found.redirection-message", { secondsLeft })}</p>
+      <p className="text-3xl">{t('not-found.error-message')}</p>
+      <p>{t('not-found.redirection-message', { secondsLeft })}</p>
     </div>
   );
 }

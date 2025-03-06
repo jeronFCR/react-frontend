@@ -1,4 +1,4 @@
-import { useState, useMemo } from "react";
+import { useMemo, useState } from 'react';
 
 interface PaginationResult<T> {
   paginatedData: T[];
@@ -10,29 +10,17 @@ interface PaginationResult<T> {
   setPage: (page: number) => void;
 }
 
-export function usePagination<T>(
-  data: T[],
-  itemsPerPage: number = 6
-): PaginationResult<T> {
+export function usePagination<T>(data: T[], itemsPerPage: number = 6): PaginationResult<T> {
   const [currentPage, setCurrentPage] = useState(0);
 
-  const totalPages = useMemo(
-    () => Math.ceil(data.length / itemsPerPage),
-    [data, itemsPerPage]
-  );
+  const totalPages = useMemo(() => Math.ceil(data.length / itemsPerPage), [data, itemsPerPage]);
 
-  const paginatedData = useMemo(
-    () =>
-      data.slice(currentPage * itemsPerPage, (currentPage + 1) * itemsPerPage),
-    [data, currentPage, itemsPerPage]
-  );
+  const paginatedData = useMemo(() => data.slice(currentPage * itemsPerPage, (currentPage + 1) * itemsPerPage), [data, currentPage, itemsPerPage]);
 
-  const nextPage = () =>
-    setCurrentPage((prev) => Math.min(prev + 1, totalPages - 1));
+  const nextPage = () => setCurrentPage((prev) => Math.min(prev + 1, totalPages - 1));
   const prevPage = () => setCurrentPage((prev) => Math.max(prev - 1, 0));
   const resetPage = () => setCurrentPage(0);
-  const setPage = (page: number) =>
-    setCurrentPage(Math.max(0, Math.min(page, totalPages - 1)));
+  const setPage = (page: number) => setCurrentPage(Math.max(0, Math.min(page, totalPages - 1)));
 
   return {
     paginatedData,

@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 
 interface SingleInputProps {
   className?: string;
@@ -8,13 +8,7 @@ interface SingleInputProps {
   dataTestId?: string;
 }
 
-export const SingleInput: React.FC<SingleInputProps> = ({
-  value,
-  placeholder,
-  changeFn,
-  className,
-  dataTestId,
-}) => {
+export const SingleInput: React.FC<SingleInputProps> = ({ value, placeholder, changeFn, className, dataTestId }) => {
   return (
     <input
       type="text"

@@ -1,19 +1,19 @@
-import { render, screen, fireEvent } from "@testing-library/react";
+import { fireEvent, render, screen } from '@testing-library/react';
 
-import { useTheme } from "@contexts/ThemeContext";
+import { useTheme } from '@contexts/ThemeContext';
 
-import { ThemeButton } from "../ThemeButton";
+import { ThemeButton } from '../ThemeButton';
 
-vi.mock("@contexts/ThemeContext", () => ({
+vi.mock('@contexts/ThemeContext', () => ({
   useTheme: vi.fn(),
 }));
 
-describe("ThemeButton", () => {
+describe('ThemeButton', () => {
   const setThemeMock = vi.fn();
 
   beforeEach(() => {
     useTheme.mockReturnValue({
-      theme: "customLight",
+      theme: 'customLight',
       setTheme: setThemeMock,
     });
   });
@@ -22,35 +22,35 @@ describe("ThemeButton", () => {
     vi.clearAllMocks();
   });
 
-  it("should render theme component correctly", () => {
+  it('should render theme component correctly', () => {
     render(<ThemeButton />);
 
-    const checkbox = screen.getByTestId("swap-theme-checkbox");
+    const checkbox = screen.getByTestId('swap-theme-checkbox');
     expect(checkbox).toBeInTheDocument();
   });
 
-  it("should swap theme when click", () => {
+  it('should swap theme when click', () => {
     render(<ThemeButton />);
 
-    const checkbox = screen.getByTestId("swap-theme-checkbox");
+    const checkbox = screen.getByTestId('swap-theme-checkbox');
 
     fireEvent.click(checkbox);
 
-    expect(setThemeMock).toHaveBeenCalledWith("customDark");
+    expect(setThemeMock).toHaveBeenCalledWith('customDark');
   });
 
-  it("should return to customLight when swap", () => {
+  it('should return to customLight when swap', () => {
     useTheme.mockReturnValue({
-      theme: "customDark",
+      theme: 'customDark',
       setTheme: setThemeMock,
     });
 
     render(<ThemeButton />);
 
-    const checkbox = screen.getByTestId("swap-theme-checkbox");
+    const checkbox = screen.getByTestId('swap-theme-checkbox');
 
     fireEvent.click(checkbox);
 
-    expect(setThemeMock).toHaveBeenCalledWith("customLight");
+    expect(setThemeMock).toHaveBeenCalledWith('customLight');
   });
 });

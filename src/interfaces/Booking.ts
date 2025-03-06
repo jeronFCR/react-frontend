@@ -1,4 +1,4 @@
 export interface Booking {
-    fullName: string;
-    avatar: string;
+  fullName: string;
+  avatar: string;
 }

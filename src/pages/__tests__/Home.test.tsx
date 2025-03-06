@@ -1,14 +1,14 @@
-import { screen } from "@testing-library/react";
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { MemoryRouter, Route, Routes } from "react-router-dom";
+import { MemoryRouter, Route, Routes } from 'react-router-dom';
 
-import { setupServer } from "msw/node";
-import { http, HttpResponse } from "msw";
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import { screen } from '@testing-library/react';
+import { HttpResponse, http } from 'msw';
+import { setupServer } from 'msw/node';
 
-import { mockRoomList } from "@helpers/tests/mocks/room";
-import { i18nRender } from "@helpers/tests/i18nRender";
+import { i18nRender } from '@helpers/tests/i18nRender';
+import { mockRoomList } from '@helpers/tests/mocks/room';
 
-import Home from "../Home";
+import Home from '../Home';
 
 const queryClient = new QueryClient();
 
@@ -34,13 +34,11 @@ const renderWithProviders = () => {
   );
 };
 
-describe("Home component", () => {
-  it("should render filters", async () => {
+describe('Home component', () => {
+  it('should render filters', async () => {
     renderWithProviders();
 
-    expect(screen.getByTestId("room-list-name-filter")).toBeInTheDocument();
-    expect(
-      screen.getByTestId("room-list-available-filter")
-    ).toBeInTheDocument();
+    expect(screen.getByTestId('room-list-name-filter')).toBeInTheDocument();
+    expect(screen.getByTestId('room-list-available-filter')).toBeInTheDocument();
   });
 });
