@@ -20,6 +20,8 @@ We plan to add [Husky](https://typicode.github.io/husky/) as a Git hook manager 
 
 To ensure consistent code formatting throughout the project, we will integrate [Prettier](https://prettier.io/) into the build process. Prettier will automatically format code when committing changes, improving readability and reducing the chance of formatting issues during collaboration.
 
+[Current PR including this feature](https://github.com/jeronFCR/Roomz-frontend/pull/4)
+
 ## 4. Dockerization
 
 We plan to create a [Docker](https://www.docker.com/) configuration for the project to simplify the development, testing, and deployment processes. Docker will allow us to containerize the application, ensuring consistency across different environments and making it easier to scale in production.
