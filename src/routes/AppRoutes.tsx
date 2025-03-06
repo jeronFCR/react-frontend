@@ -1,14 +1,13 @@
-import { lazy, Suspense } from "react";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { Suspense, lazy } from 'react';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
-import { useTheme } from "@contexts/ThemeContext";
+import { Layout, Loading } from '@components/ui';
+import { ThemeButton } from '@components/ui/ThemeButton';
+import { useTheme } from '@contexts/ThemeContext';
 
-import { Layout, Loading } from "@components/ui";
-import { ThemeButton } from "@components/ui/ThemeButton";
-
-const Home = lazy(() => import("@pages/Home"));
-const Room = lazy(() => import("@pages/Room"));
-const NotFound = lazy(() => import("@pages/NotFound"));
+const Home = lazy(() => import('@pages/Home'));
+const Room = lazy(() => import('@pages/Room'));
+const NotFound = lazy(() => import('@pages/NotFound'));
 
 const AppRoutes = () => {
   const { theme } = useTheme();

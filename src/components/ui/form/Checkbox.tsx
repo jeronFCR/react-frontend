@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 
 interface CheckboxProps {
   label: string;
@@ -7,21 +7,10 @@ interface CheckboxProps {
   dataTestId?: string;
 }
 
-export const Checkbox: React.FC<CheckboxProps> = ({
-  label,
-  checked,
-  changeFn,
-  dataTestId,
-}) => {
+export const Checkbox: React.FC<CheckboxProps> = ({ label, checked, changeFn, dataTestId }) => {
   return (
     <label className="fieldset-label">
-      <input
-        type="checkbox"
-        className="checkbox checkbox-primary"
-        data-testid={dataTestId}
-        checked={checked}
-        onChange={changeFn}
-      />
+      <input type="checkbox" className="checkbox checkbox-primary" data-testid={dataTestId} checked={checked} onChange={changeFn} />
       {label}
     </label>
   );

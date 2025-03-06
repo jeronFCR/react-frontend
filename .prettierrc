@@ -1,0 +1,14 @@
+{
+  "semi": true,
+  "singleQuote": true,
+  "trailingComma": "es5",
+  "tabWidth": 2,
+  "printWidth": 150,
+  "bracketSpacing": true,
+  "arrowParens": "always",
+  "importOrder": ["^react", "<THIRD_PARTY_MODULES>", "^@(interfaces|services|hooks|reducers|helpers)", "^@(pages|contexts|components)", "^\\."],
+  "importOrderSeparation": true,
+  "importOrderSortSpecifiers": true,
+  "importOrderParserPlugins": ["classProperties", "jsx", "decorators-legacy", "typescript"],
+  "plugins": ["@trivago/prettier-plugin-sort-imports"]
+}

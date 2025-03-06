@@ -1,25 +1,25 @@
-import { lazy, Suspense, useEffect, useReducer, useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
-import { motion } from "framer-motion";
-import { toast } from "sonner";
+import { Suspense, lazy, useEffect, useReducer, useState } from 'react';
+import { useNavigate, useParams } from 'react-router-dom';
 
-import { useDevice, useRoom, useBookRoom, useReleaseRoom } from "@services";
-import { Device } from "@interfaces";
-import { roomReducer, initialState } from "@reducers/roomReducer";
+import { motion } from 'framer-motion';
+import { toast } from 'sonner';
 
-import { Card, Loading } from "@components/ui";
-import RoomDetail from "@components/room/RoomDetail";
+import { Device } from '@interfaces';
+import { initialState, roomReducer } from '@reducers/roomReducer';
+import { useBookRoom, useDevice, useReleaseRoom, useRoom } from '@services';
 
-const DeviceDetail = lazy(() => import("@components/devices/DeviceDetail"));
+import RoomDetail from '@components/room/RoomDetail';
+import { Card, Loading } from '@components/ui';
+
+const DeviceDetail = lazy(() => import('@components/devices/DeviceDetail'));
 
 export default function Room() {
   const { roomId } = useParams();
   const navigate = useNavigate();
   const { data: room, isLoading: isLoadingRoom, refetch } = useRoom(roomId);
 
-  const [selectedDeviceId, setSelectedDeviceId] = useState<string>("");
-  const { data: device, isLoading: isLoadingDevice } =
-    useDevice(selectedDeviceId);
+  const [selectedDeviceId, setSelectedDeviceId] = useState<string>('');
+  const { data: device, isLoading: isLoadingDevice } = useDevice(selectedDeviceId);
 
   const [, dispatch] = useReducer(roomReducer, initialState);
 
@@ -27,26 +27,22 @@ export default function Room() {
   const releaseRoomMutation = useReleaseRoom(roomId);
 
   useEffect(() => {
-    if (!room && !isLoadingRoom) navigate("/not-found");
+    if (!room && !isLoadingRoom) navigate('/not-found');
   }, [room, isLoadingRoom, navigate]);
 
-  const handleRoomAction = (actionType: "BOOK" | "RELEASE") => {
-    const mutation =
-      actionType === "BOOK" ? bookRoomMutation : releaseRoomMutation;
+  const handleRoomAction = (actionType: 'BOOK' | 'RELEASE') => {
+    const mutation = actionType === 'BOOK' ? bookRoomMutation : releaseRoomMutation;
 
     mutation.mutate(undefined, {
       onSuccess: (data) => {
         dispatch({
-          type:
-            actionType === "BOOK"
-              ? "BOOK_ROOM_SUCCESS"
-              : "RELEASE_ROOM_SUCCESS",
+          type: actionType === 'BOOK' ? 'BOOK_ROOM_SUCCESS' : 'RELEASE_ROOM_SUCCESS',
           payload: data.message,
         });
         toast.success(data.message);
       },
       onError: (error) => {
-        dispatch({ type: "ERROR", payload: error.message });
+        dispatch({ type: 'ERROR', payload: error.message });
         toast.error(error.message);
       },
       onSettled: refetch,
@@ -57,7 +53,7 @@ export default function Room() {
     <motion.div
       className="relative flex gap-4"
       animate={{ x: selectedDeviceId ? -200 : 0 }}
-      transition={{ type: "spring", stiffness: 200, duration: 10000 }}
+      transition={{ type: 'spring', stiffness: 200, duration: 10000 }}
     >
       <RoomDetail
         room={room}
@@ -75,10 +71,7 @@ export default function Room() {
           }
         >
           {device && !isLoadingDevice ? (
-            <DeviceDetail
-              device={device}
-              backFn={() => setSelectedDeviceId("")}
-            />
+            <DeviceDetail device={device} backFn={() => setSelectedDeviceId('')} />
           ) : (
             <Card className="size-40 flex items-center">
               <Loading />
