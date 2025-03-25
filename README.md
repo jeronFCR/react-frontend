@@ -1,4 +1,4 @@
-# ROOMZ Frontend Test React
+# Frontend Test React
 
 This project was bootstrapped with [Vite](https://vite.dev/guide/) and runs on [node v22](https://nodejs.org/en/download).
 
